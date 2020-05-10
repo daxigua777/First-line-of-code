@@ -78,20 +78,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    //判断是否有对手机存储具有读写的权限，若没有则添加权限；
+                    //判断是否有对手机存储具有读写的权限，若没有则请求权限；
                     //WRITE_EXTERNAL_STORAGE表示授予程序对手机存储的读写权限
-                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+                    //使用ActivityCompat.requestPermissions请求权限
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+                    //请求权限后会回调onRequestPermissionsResult方法
                 } else {
                     openAlbum();
                 }
             }
         });
-    }
-
-    private void openAlbum(){
-        Intent intent = new Intent("android.intent.action.GET_CONTENT");
-        intent.setType("image/*");
-        startActivityForResult(intent, CHOOSE_PHOTO);   //打开相册
     }
 
     @Override
@@ -104,9 +101,17 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "你拒绝了这个权限", Toast.LENGTH_SHORT).show();
                 }
                 break;
-                default:
-                    break;
+            default:
+                break;
         }
+    }
+
+    private void openAlbum(){
+        Intent intent = new Intent("android.intent.action.GET_CONTENT");
+        //使用了android.intent.action.GET_CONTENT来选择文件
+        intent.setType("image/*");  //选择image的文件
+        startActivityForResult(intent, CHOOSE_PHOTO);   //打开相册选择照片
+        //在调用了startActivityForResult方法后，其结果会返回到onActivityResult（）的方法中；
     }
 
     @Override
@@ -140,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //4.4版本以下的运行这个
     private void handleImageBeforKiKat(Intent data) {
         Uri uri = data.getData();
         String imagePath = getImaePath(uri, null);
@@ -168,9 +174,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //4.4及以上的运行这个
     private void handleImageOnKiKat(Intent data) {
         String imagePath = null;
-        Uri uri = data.getData();
+        Uri uri = data.getData();   //获取一个uri的对象
         if (DocumentsContract.isDocumentUri(this, uri)) {
             //如果是document类型的uri，则通过document id处理
             String docId = DocumentsContract.getDocumentId(uri);
