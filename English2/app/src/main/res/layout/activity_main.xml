@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/p6"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_xs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="32sp"
+        android:textColor="#E91E63"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="答题系统"/>
+
+    <TextView
+        android:id="@+id/tv_timu"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="80dp"
+        android:gravity="center_vertical"
+        android:text="题目是："
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ed_timu"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="asd"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:textIsSelectable="true"
+        app:layout_constraintTop_toTopOf="@id/tv_timu"
+        app:layout_constraintLeft_toRightOf="@id/tv_timu"
+        android:layout_marginLeft="50dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_daan"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:text="答案是："
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_timu"
+        app:layout_constraintTop_toBottomOf="@id/tv_timu" />
+
+    <EditText
+        android:id="@+id/ed_daan"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="牛皮"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/ed_timu"
+        app:layout_constraintTop_toTopOf="@id/tv_daan" />
+
+
+    <TextView
+        android:id="@+id/tv_fenshu"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:text="当前答对："
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_daan"
+        app:layout_constraintTop_toBottomOf="@id/tv_daan" />
+
+    <TextView
+        android:id="@+id/ed_fenshu"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="结果"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        app:layout_constraintLeft_toLeftOf="@id/ed_daan"
+        app:layout_constraintTop_toTopOf="@id/tv_fenshu" />
+
+
+        <Button
+            android:id="@+id/bt_sh"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:background="@mipmap/p4"
+            app:layout_constraintLeft_toLeftOf="@id/tv_fenshu"
+            app:layout_constraintTop_toBottomOf="@id/tv_fenshu"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            />
+
+        <Button
+            android:id="@+id/bt_next"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@mipmap/p3"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@id/ed_fenshu"
+            app:layout_constraintTop_toTopOf="@id/bt_sh"
+            android:layout_marginLeft="10dp"
+            />
+
+</android.support.constraint.ConstraintLayout>
