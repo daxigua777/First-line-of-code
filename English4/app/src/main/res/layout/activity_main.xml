@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="英语单词练习系统（V1.0）"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/fanYi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/etoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="英译汉"
+            android:textSize="16dp"
+            android:layout_marginLeft="80dp"
+            />
+        <RadioButton
+            android:id="@+id/ctoe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="汉译英"
+            android:textSize="16dp"
+            android:layout_marginLeft="25dp"
+            />
+    </RadioGroup>
+
+    <!-- 题目是 -->
+    <TextView
+        android:id="@+id/tv_timu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="题目是："
+        android:textSize="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fanYi"
+        />
+    <!-- 题目 -->
+    <TextView
+        android:id="@+id/ed_timu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="题目是："
+        android:textSize="16dp"
+        app:layout_constraintLeft_toRightOf="@id/tv_timu"
+        app:layout_constraintTop_toBottomOf="@id/fanYi"
+        />
+
+    <!-- 答案是 -->
+    <TextView
+        android:id="@+id/tv_daan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="答案是："
+        android:textSize="16dp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_timu"
+        app:layout_constraintTop_toBottomOf="@id/tv_timu"
+        />
+    <!-- 答案 -->
+    <EditText
+        android:id="@+id/ed_daan"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/tv_daan"
+        app:layout_constraintTop_toBottomOf="@id/ed_timu"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp"
+        android:background="#ccc"
+        />
+    <!--结果是-->
+    <TextView
+        android:id="@+id/tv_jieguo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="回答结果："
+        android:textSize="16dp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_daan"
+        app:layout_constraintTop_toBottomOf="@id/tv_daan"
+        />
+    <!-- 回答结果 -->
+    <TextView
+        android:id="@+id/ed_jieguo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/tv_jieguo"
+        app:layout_constraintTop_toBottomOf="@id/ed_daan"
+        android:text="OK！"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp"
+        />
+    <!-- 得分是 -->
+    <TextView
+        android:id="@+id/tv_defeng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_jieguo"
+        app:layout_constraintTop_toBottomOf="@id/tv_jieguo"
+        android:layout_marginTop="20dp"
+        android:text="得    分："
+        />
+    <!-- 得分 -->
+    <TextView
+        android:id="@+id/ed_defeng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/tv_defeng"
+        app:layout_constraintTop_toBottomOf="@id/ed_jieguo"
+        android:text=""
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ed_defeng"
+        android:orientation="horizontal"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="20dp">
+        <Button
+            android:id="@+id/shangYiGe"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="上一个"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/pingPan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="审核"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/xiaYiGe"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="下一个"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
